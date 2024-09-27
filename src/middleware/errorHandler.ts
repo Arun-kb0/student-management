@@ -8,10 +8,10 @@ export const errorHandler = (
   next: NextFunction
 ) => {
   if (error instanceof CustomError) {
-    console.log(error.message)
+    console.error(error)
     res.status(error.statusCode).json(error.message)
     return
   }
-  console.log(error.message)
+  console.error(error)
   res.status(500).json('Internal server error')
 }
