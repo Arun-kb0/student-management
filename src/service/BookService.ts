@@ -9,13 +9,13 @@ export class BookService {
 
   async findOne(id: number) {
     return await prismaClient.book.findFirst({
-      where: { id }
+      where: { id: id }
     })
   }
 
   async updateOne(id: number, book: Prisma.BookUpdateInput) {
     return await prismaClient.book.update({
-      where: { id },
+      where: { id: id },
       data: book
     })
   }
@@ -28,10 +28,10 @@ export class BookService {
 
   async delete(id: number) {
     const deletedBook = await prismaClient.book.findFirstOrThrow({
-      where: {id}
+      where: { id: id }
     })
     await prismaClient.book.delete({
-      where: { id }
+      where: { id: id }
     })
     return deletedBook
   }

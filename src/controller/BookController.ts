@@ -54,6 +54,8 @@ export class BookController {
     try {
       const id = req.query.id
       const book: Prisma.BookCreateInput = req.body
+      console.log('\nbook')
+      console.log(book)
       if (!id || isNaN(+id)) throw new CustomError('Invalid book id', 400)
       const newBook = await this.bookService.updateOne(+id, book)
       res.status(200).json(newBook)
