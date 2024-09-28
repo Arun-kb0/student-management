@@ -30,6 +30,8 @@ export class BookController {
   async addBook(req: Request, res: Response, next: NextFunction) {
     try {
       const book: Prisma.BookCreateInput = req.body
+      
+      console.log(book)
       const newBook = await this.bookService.create(book)
       res.status(200).json(newBook)
     } catch (error) {

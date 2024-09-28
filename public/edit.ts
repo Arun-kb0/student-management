@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(data)
     const res = await fetch('/create', {
       method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     })
     if (res.ok) {
